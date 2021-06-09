@@ -34,6 +34,22 @@ WHERE (name LIKE 'd%');
 SELECT SUM(price) 
 FROM `pagamenti` 
 WHERE status='accepted'
+
 -- 6.
 SELECT MAX(price)
 from `pagamenti`
+
+-- 7. 
+SELECT * 
+FROM `ospiti` 
+WHERE document_type = 'Driver License' 
+  AND YEAR(date_of_birth) = 1975
+
+-- 8.
+SELECT * 
+FROM `paganti` 
+WHERE ospite_id IS NOT NULL ;
+
+-- 9. Quanti posti letto ha l’hotel in totale?
+SELECT COUNT(id) 
+FROM `stanze` ;
