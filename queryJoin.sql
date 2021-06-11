@@ -23,3 +23,17 @@ ON `paganti`.`id`=`pagamenti`.`pagante_id`
 WHERE `prenotazioni`.`created_at` BETWEEN '2018/05/01' AND '2018/05/31'
 
 --4.
+SELECT  SUM(`pagamenti`.`price`) AS `total_price_first_floor`
+FROM `pagamenti`
+LEFT JOIN `prenotazioni`
+	ON `prenotazioni`.`id` = `pagamenti`.`prenotazione_id`
+LEFT JOIN `stanze`
+	ON `prenotazioni`.`stanza_id` = `stanze`.`id`
+WHERE `stanze`.`floor` = 1
+
+--5.
+SELECT *
+FROM `pagamenti`
+LEFT JOIN `paganti`
+ON `pagamenti`.`pagante_id`=`paganti`.`id`
+WHERE `pagamenti`.`prenotazione_id` = 7
