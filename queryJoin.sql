@@ -37,3 +37,10 @@ FROM `pagamenti`
 LEFT JOIN `paganti`
 ON `pagamenti`.`pagante_id`=`paganti`.`id`
 WHERE `pagamenti`.`prenotazione_id` = 7
+
+--6
+SELECT `stanze`.`room_number` as 'stanza libera'
+FROM `prenotazioni`
+RIGHT JOIN `stanze`
+ON `stanze`.`id`= `prenotazioni`.`stanza_id`
+WHERE stanza_id IS NULL
