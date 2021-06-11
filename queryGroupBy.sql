@@ -1,5 +1,7 @@
 --1
-
+SELECT YEAR(`date_of_birth`) as 'year', COUNT(`id`)
+FROM `ospiti`
+GROUP BY year
 
 --2
 SELECT SUM(`pagamenti`.`price`),`pagamenti`.`status`
